@@ -1,0 +1,84 @@
+package com.example.dojomovie
+
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.example.dojomovie.DB.userDB
+import com.example.dojomovie.DBhelper.Database_Helper
+import com.example.dojomovie.adapter.user_adapter
+import com.example.dojomovie.databinding.ActivityMainBinding
+
+class RegisterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var Database_Helper : Database_Helper
+    private lateinit var userRV: RecyclerView
+    private lateinit var adapter: user_adapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.register_activity)
+
+        val signUpButton = findViewById<Button>(R.id.signUpButton)
+        val phoneNumET = findViewById<EditText>(R.id.phoneNumET)
+        val passwordET = findViewById<EditText>(R.id.passwordET)
+        val confrimPasswordET = findViewById<EditText>(R.id.confirmPasswordET)
+
+
+        Database_Helper = Database_Helper(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+        signUpButton.setOnClickListener(){
+            val phoneNumber = phoneNumET.text.toString()
+            val passwords = passwordET.text.toString()
+            val confirmPass = confrimPasswordET.text.toString()
+
+
+            if(phoneNumber.isNotEmpty() && passwords.isNotEmpty() && confirmPass.isNotEmpty()){
+                val user = userDB().apply {
+                    id = 0
+                    phoneNum = phoneNumET.text.toString()
+                    password = passwordET.text.toString()
+                }
+
+                Database_Helper.insertUser(user)
+                Log.d("data", "Ini adalah no telf ${phoneNumET}")
+
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+            phoneNumET.setText("")
+            passwordET.setText("")
+            confrimPasswordET.setText("")
+
+
+        }
+
+        val dbHelper = Database_Helper(this)
+        val userList = dbHelper.getUser()
+
+        for (user in userList) {
+            Log.d(
+                "UserData",
+                "ID: ${user.id.toString()}, Phone: ${user.phoneNum.toString()}, Password: ${user.password.toString()}"
+            )
+        }
+
+
+
+    }
+
+    fun registerClicked(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+
+}

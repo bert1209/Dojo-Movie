@@ -2,6 +2,7 @@ package com.example.dojomovie
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dojomovie.DB.userDB
 import com.example.dojomovie.DBhelper.Database_Helper
@@ -20,6 +22,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var Database_Helper : Database_Helper
     private lateinit var userRV: RecyclerView
     private lateinit var adapter: user_adapter
+    private val dbHelper = Database_Helper(this)
+//    private val userList = dbHelper.getUser()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,24 +41,24 @@ class RegisterActivity : AppCompatActivity() {
 
 
         signUpButton.setOnClickListener(){
-            val phoneNumber = phoneNumET.text.toString()
-            val passwords = passwordET.text.toString()
-            val confirmPass = confrimPasswordET.text.toString()
+//            val phoneNumber = phoneNumET.text.toString()
+//            val passwords = passwordET.text.toString()
+//            val confirmPass = confrimPasswordET.text.toString()
+//            Log.d("tes", "Ini MASUK" )
 
 
-            if(phoneNumber.isNotEmpty() && passwords.isNotEmpty() && confirmPass.isNotEmpty()){
-                val user = userDB().apply {
-                    id = 0
-                    phoneNum = phoneNumET.text.toString()
-                    password = passwordET.text.toString()
-                }
+//            if(phoneNumber.isNotEmpty() && passwords.isNotEmpty() && confirmPass.isNotEmpty()){
+//                val user = userDB().apply {
+//                    id = 0
+//                    phoneNum = phoneNumET.text.toString()
+//                    password = passwordET.text.toString()
+//                }
+//
+//                Database_Helper.insertUser(user)
+//                Log.d("data", "Ini adalah no telf ${phoneNumET}")
 
-                Database_Helper.insertUser(user)
-                Log.d("data", "Ini adalah no telf ${phoneNumET}")
-
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            }
+                checkSMSPermission(phoneNumET.text.toString(), passwordET.text.toString())
+//            }
             phoneNumET.setText("")
             passwordET.setText("")
             confrimPasswordET.setText("")
@@ -76,8 +81,23 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun registerClicked(view: View) {
-        val intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, OTPActivity::class.java)
         startActivity(intent)
+    }
+
+    fun checkSMSPermission(phoneNumber : String, password : String){
+        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.SEND_SMS), 100)
+            Log.d("tes", "Ini MASUK" )
+//            checkSMSPermission()
+        } else{
+            // Di ActivityA.kt
+            val intent = Intent(this, OTPActivity::class.java)
+            intent.putExtra("PhoneNumber", phoneNumber)
+            intent.putExtra("Password", password)
+            startActivity(intent)
+
+        }
     }
 
 

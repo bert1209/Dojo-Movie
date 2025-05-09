@@ -18,6 +18,8 @@ class Database_Helper(context: Context): SQLiteOpenHelper(context, "user.db", nu
 
         db?.execSQL(queryCreateUser)
     }
+    
+
 
     fun insertUser(users: userDB){
         val db = writableDatabase

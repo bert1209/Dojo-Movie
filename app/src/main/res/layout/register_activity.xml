@@ -15,15 +15,11 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="140dp"
-            android:text="Dojo Movie"
-            android:textColor="#4B0082"
-            android:textSize="32dp"
-            android:textStyle="bold"
+            android:src="@drawable/dojo_movie"
+            android:layout_marginBottom="90dp"
             />
 
         <EditText
@@ -65,9 +61,9 @@
             android:id="@+id/signUpButton"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:backgroundTint="#4B0082"
+            android:backgroundTint="#EEBA2C"
             android:text="Sign Up"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
             app:cornerRadius="10dp"

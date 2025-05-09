@@ -26,19 +26,21 @@ class LoginActivity : AppCompatActivity() {
         val passwordET = findViewById<EditText>(R.id.PasswordLoginET)
 
 
-        for (user in userList) {
+        signInBtn.setOnClickListener {
+            val phoneInput = phoneNumET.text.toString()
+            val passInput = passwordET.text.toString()
 
-//            Log.d("UserData", "ID: ${user.id.toString()}, Phone: ${user.phoneNum.toString()}, Password: ${user.password.toString()}")
-            signInBtn.setOnClickListener(){
-                Log.d("data", phoneNumET.text.toString())
-                if(phoneNumET.text.toString() == user.phoneNum.toString() && passwordET.text.toString() == user.password.toString()){
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
+            val user = userList.find { it.phoneNum == phoneInput && it.password == passInput }
 
-                    Log.d("login", "Sukses")
-                }
+            if (user != null) {
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                Log.d("login", "Sukses")
+            } else {
+                Log.d("login", "Gagal - user tidak ditemukan")
             }
         }
+
 
     }
 }

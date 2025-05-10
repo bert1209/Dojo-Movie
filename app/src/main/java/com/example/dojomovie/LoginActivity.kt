@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.dojomovie.DB.UserSession
 import com.example.dojomovie.DBhelper.Database_Helper
 
 class LoginActivity : AppCompatActivity() {
@@ -31,11 +32,18 @@ class LoginActivity : AppCompatActivity() {
             val passInput = passwordET.text.toString()
 
             val user = userList.find { it.phoneNum == phoneInput && it.password == passInput }
+            if (user != null) {
+                UserSession.currentLoggedInUser = user
+                Log.d("Login", "User logged in: ${user.phoneNum}")
+            }
+
 
             if (user != null) {
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 Log.d("login", "Sukses")
+                Log.d("login", dbHelper.logged_user?.id.toString())
+
             } else {
                 Log.d("login", "Gagal - user tidak ditemukan")
             }

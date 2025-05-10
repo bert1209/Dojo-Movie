@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -46,6 +47,13 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation("io.github.chaosleung:pinview:1.4.4")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.play.services.maps)
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

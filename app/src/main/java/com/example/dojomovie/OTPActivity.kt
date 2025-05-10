@@ -34,7 +34,7 @@ class OTPActivity : AppCompatActivity() {
         var phoneNumber = intent.getStringExtra("PhoneNumber")
         var passwords = intent.getStringExtra("Password")
         phoneNumbers = phoneNumber.toString()
-        currentOtp = generateOtp(4)
+        currentOtp = generateOtp(6)
 
         val otp = findViewById<EditText>(R.id.pinView)
         val OKButton = findViewById<Button>(R.id.OkButton)
@@ -90,7 +90,7 @@ class OTPActivity : AppCompatActivity() {
         }
         timer.start()
     }
-    fun generateOtp(length: Int = 4): String {
+    fun generateOtp(length: Int = 6): String {
         val chars = "0123456789"
         return (1..length)
             .map { chars.random() }

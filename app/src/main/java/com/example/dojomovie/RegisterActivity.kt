@@ -1,10 +1,8 @@
 package com.example.dojomovie
 
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -12,16 +10,14 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dojomovie.DB.userDB
 import com.example.dojomovie.DBhelper.Database_Helper
-import com.example.dojomovie.adapter.user_adapter
 import com.example.dojomovie.databinding.ActivityMainBinding
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var Database_Helper : Database_Helper
     private lateinit var userRV: RecyclerView
-    private lateinit var adapter: user_adapter
+//    private lateinit var adapter: user_adapter
     private val dbHelper = Database_Helper(this)
 //    private val userList = dbHelper.getUser()
 

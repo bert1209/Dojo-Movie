@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,7 +26,12 @@ class LoginActivity : AppCompatActivity() {
         val signInBtn = findViewById<Button>(R.id.signInButton)
         val phoneNumET = findViewById<EditText>(R.id.phoneNumLoginET)
         val passwordET = findViewById<EditText>(R.id.PasswordLoginET)
+        val signInText = findViewById<TextView>(R.id.TextSignInNow)
 
+        signInText.setOnClickListener{
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
         signInBtn.setOnClickListener {
             val phoneInput = phoneNumET.text.toString()

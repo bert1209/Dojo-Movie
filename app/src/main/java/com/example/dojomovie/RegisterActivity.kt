@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -37,27 +38,26 @@ class RegisterActivity : AppCompatActivity() {
 
 
         signUpButton.setOnClickListener(){
-//            val phoneNumber = phoneNumET.text.toString()
-//            val passwords = passwordET.text.toString()
-//            val confirmPass = confrimPasswordET.text.toString()
-//            Log.d("tes", "Ini MASUK" )
+            if(passwordET.text.toString() == confrimPasswordET.text.toString()){
+                if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.SEND_SMS), 100)
+                    Log.d("tes", "Ini MASUK" )
+//            checkSMSPermission()
+                } else{
+                    // Di ActivityA.kt
+                    val intent = Intent(this, OTPActivity::class.java)
+                    intent.putExtra("PhoneNumber", phoneNumET.toString())
+                    intent.putExtra("Password", passwordET.toString())
+                    startActivity(intent)
+                    phoneNumET.setText("")
+                    passwordET.setText("")
+                    confrimPasswordET.setText("")
 
 
-//            if(phoneNumber.isNotEmpty() && passwords.isNotEmpty() && confirmPass.isNotEmpty()){
-//                val user = userDB().apply {
-//                    id = 0
-//                    phoneNum = phoneNumET.text.toString()
-//                    password = passwordET.text.toString()
-//                }
-//
-//                Database_Helper.insertUser(user)
-//                Log.d("data", "Ini adalah no telf ${phoneNumET}")
-
-                checkSMSPermission(phoneNumET.text.toString(), passwordET.text.toString())
-//            }
-            phoneNumET.setText("")
-            passwordET.setText("")
-            confrimPasswordET.setText("")
+                }
+            } else {
+                Toast.makeText(applicationContext, "Make Sure to Check your Password Once Again", Toast.LENGTH_SHORT).show()
+            }
 
 
         }

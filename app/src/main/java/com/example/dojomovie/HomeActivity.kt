@@ -84,6 +84,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         val recyclerView: RecyclerView = findViewById(R.id.RVHomePage)
+        recyclerView.isNestedScrollingEnabled = false
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
 

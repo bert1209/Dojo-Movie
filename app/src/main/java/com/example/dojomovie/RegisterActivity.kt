@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -31,6 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         val phoneNumET = findViewById<EditText>(R.id.phoneNumET)
         val passwordET = findViewById<EditText>(R.id.passwordET)
         val confrimPasswordET = findViewById<EditText>(R.id.confirmPasswordET)
+        val textToRegister = findViewById<TextView>(R.id.textToRegister)
 
 
         Database_Helper = Database_Helper(this)
@@ -46,8 +48,8 @@ class RegisterActivity : AppCompatActivity() {
                 } else{
                     // Di ActivityA.kt
                     val intent = Intent(this, OTPActivity::class.java)
-                    intent.putExtra("PhoneNumber", phoneNumET.toString())
-                    intent.putExtra("Password", passwordET.toString())
+                    intent.putExtra("PhoneNumber", phoneNumET.text.toString())
+                    intent.putExtra("Password", passwordET.text.toString())
                     startActivity(intent)
                     phoneNumET.setText("")
                     passwordET.setText("")
@@ -57,6 +59,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(applicationContext, "Make Sure to Check your Password Once Again", Toast.LENGTH_SHORT).show()
+            }
+            textToRegister.setOnClickListener{
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
             }
 
 

@@ -112,6 +112,13 @@ class productDetailActivity : AppCompatActivity() {
 
             if (qty > 0) {
                 Toast.makeText(this, "Transaction successful!", Toast.LENGTH_SHORT).show()
+
+                // Navigate back to HomeActivity
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish() // Optional: Finish current activity so user can't go back here with back button
+
             } else {
                 Toast.makeText(this, "Please enter a valid quantity", Toast.LENGTH_SHORT).show()
             }

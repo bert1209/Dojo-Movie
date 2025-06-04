@@ -34,7 +34,7 @@
         </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/transactionRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

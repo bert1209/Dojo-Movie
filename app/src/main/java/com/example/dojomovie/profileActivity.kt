@@ -5,6 +5,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -66,7 +69,10 @@ class profileActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Clicked History", Toast.LENGTH_SHORT).show()
                 }
 
-                R.id.nav_aboutUs -> Toast.makeText(applicationContext, "Clicked About Us", Toast.LENGTH_SHORT).show()
+                R.id.nav_aboutUs -> {
+                    startActivity(Intent(this, AboutUsActivity::class.java))
+                    Toast.makeText(applicationContext, "Clicked About Us", Toast.LENGTH_SHORT).show()
+                }
             }
 
             true
@@ -77,5 +83,13 @@ class profileActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val phoneText = "+62 ${UserSession.currentLoggedInUser?.phoneNum}"
+        val mSpannableString = SpannableString(phoneText)
+        val mYellow = ForegroundColorSpan(Color.parseColor("#EEBA2C"))
+
+        mSpannableString.setSpan(mYellow, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        phoneNum.text = mSpannableString
     }
 }

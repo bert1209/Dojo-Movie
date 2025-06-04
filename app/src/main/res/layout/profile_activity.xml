@@ -37,47 +37,50 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-
-
-        <ImageView
-            android:layout_marginTop="100dp"
-            android:id="@+id/profileImage"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/profile"
-            android:visibility="visible"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+            <ImageView
+                android:layout_marginTop="125dp"
+                android:id="@+id/profileImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/profile"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/phoneNumber"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="35sp"
+                android:fontFamily="@font/barlowcondensedbold"
                 android:textColor="@color/white"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/LogOutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="@color/black"
-                android:gravity="center"
+                android:backgroundTint="#212121"
                 android:text="Log Out"
-                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:fontFamily="@font/barlowcondensedmedium"
                 app:strokeColor="#EE2C2C"
-                app:strokeWidth="3px" />
+                app:strokeWidth="2dp"
+                app:cornerRadius="10dp"/>
+
 
 
 

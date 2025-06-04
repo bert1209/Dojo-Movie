@@ -27,7 +27,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="25dp"
                 android:src="@drawable/dojo_movie"
                 android:layout_marginRight="50dp" />
         </androidx.appcompat.widget.Toolbar>
@@ -35,7 +35,6 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:paddingBottom="50dp"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +43,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="40dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -56,11 +56,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_margin="20dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="18dp"
                     android:text="Location"
                     android:fontFamily="@font/barlowcondensedbold"
-                    android:textSize="40dp"
+                    android:textSize="30sp"
                     android:textColor="@color/white" />
 
                 <fragment
@@ -73,11 +74,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_margin="20dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="16dp"
                     android:text="Movies"
                     android:fontFamily="@font/barlowcondensedbold"
-                    android:textSize="40dp"
+                    android:textSize="30sp"
                     android:textColor="@color/white" />
 
                 <androidx.recyclerview.widget.RecyclerView

@@ -4,41 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="4dp">
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="0dp"
+    card_view:cardBackgroundColor="@android:color/transparent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#2C2C2C"
+        android:background="#212121"
         android:padding="8dp">
 
         <ImageView
             android:id="@+id/posterFilmIV"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:contentDescription="Movie Poster"
-            />
+            android:adjustViewBounds="true"
+            android:contentDescription="Movie Poster" />
 
         <TextView
             android:id="@+id/movieNameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/barlowcondensedbold"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:maxLines="2"
             android:ellipsize="end"
-            android:paddingTop="4dp"/>
+            android:paddingTop="4dp" />
 
         <TextView
             android:id="@+id/moviePriceTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/barlowcondensedmedium"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:paddingTop="2dp"/>
+            android:textSize="16sp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

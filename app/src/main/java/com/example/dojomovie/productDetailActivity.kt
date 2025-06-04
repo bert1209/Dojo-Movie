@@ -35,6 +35,7 @@ class productDetailActivity : AppCompatActivity() {
 
         val backButton = findViewById<ImageView>(R.id.arrowBack)
         val poster = findViewById<ImageView>(R.id.posterMovie)
+        val posterBackground = findViewById<ImageView>(R.id.posterBackground) // <-- NEW
         val judul = findViewById<TextView>(R.id.MovieTitle)
         val harga = findViewById<TextView>(R.id.MoviePrice)
         val quantity = findViewById<EditText>(R.id.quantity)
@@ -43,14 +44,12 @@ class productDetailActivity : AppCompatActivity() {
         val minButton = findViewById<Button>(R.id.minus)
         val buyNowButton = findViewById<Button>(R.id.buyNowButton)
 
+        val MoviePoster = intent.getStringExtra("MoviePoster")
+        val MovieName = intent.getStringExtra("MovieName")
+        val MoviePrice = intent.getIntExtra("MoviePrice", 0)
+        val Movie_ID = intent.getStringExtra("Movie_ID")
 
-
-        var MoviePoster = intent.getStringExtra("MoviePoster")
-        var MovieName = intent.getStringExtra("MovieName")
-        var MoviePrice = intent.getIntExtra("MoviePrice", 0)
-        var Movie_ID = intent.getStringExtra("Movie_ID")
-
-        backButton?.setOnClickListener(){
+        backButton?.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             Log.d("debug", "MASUK")
@@ -58,14 +57,16 @@ class productDetailActivity : AppCompatActivity() {
 
         val imageResource = resources.getIdentifier(MoviePoster, "drawable", packageName)
         poster.setImageResource(imageResource)
-        judul.setText(MovieName)
-        harga.setText("Price : Rp ${MoviePrice}")
+        posterBackground.setImageResource(imageResource) // <-- NEW
+
+        judul.text = MovieName
+        harga.text = "Price : Rp $MoviePrice"
 
         quantity.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                val quantity = s.toString().toIntOrNull() ?: 0
-                val totalPrice = quantity * MoviePrice
-                totalHarga.text = "Total Price: Rp ${totalPrice}"
+                val qty = s.toString().toIntOrNull() ?: 0
+                val totalPrice = qty * MoviePrice
+                totalHarga.text = "Total Price: Rp $totalPrice"
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -80,53 +81,49 @@ class productDetailActivity : AppCompatActivity() {
             }
         }
 
-
         plusButton.setOnClickListener {
             currentQuantity += 1
             quantity.setText(currentQuantity.toString())
             updateTotalPrice(MoviePrice, totalHarga)
         }
 
-
         buyNowButton.setOnClickListener {
-            val quantity = quantity.text.toString().toIntOrNull() ?: 0
+            val qty = quantity.text.toString().toIntOrNull() ?: 0
             val loggedInUser = UserSession.currentLoggedInUser
+
             if (loggedInUser != null) {
                 Log.d("Current User", "Logged in user: ${loggedInUser.phoneNum}")
             } else {
                 Log.d("Current User", "No user is logged in.")
             }
 
-
             val transaction = transaction(
                 transaction_id = 0,
                 film_id = Movie_ID.toString(),
                 user_id = loggedInUser?.id.toString(),
-                quantity = quantity
+                quantity = qty
             )
-            Log.d("Quantity", quantity.toString())
+
+            Log.d("Quantity", qty.toString())
             Log.d("MovID", Movie_ID.toString())
             Log.d("UserID", loggedInUser?.id.toString())
+
             dbHelper.insertTransaction(transaction)
-            if (quantity > 0) {
+
+            if (qty > 0) {
                 Toast.makeText(this, "Transaction successful!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Please enter a valid quantity", Toast.LENGTH_SHORT).show()
             }
         }
 
-
         Log.d("data", MoviePrice.toString())
         Log.d("data", MoviePoster.toString())
         Log.d("data", MovieName.toString())
-
-
     }
-    private fun updateTotalPrice(moviePrice : Int, totalPriceText : TextView) {
+
+    private fun updateTotalPrice(moviePrice: Int, totalPriceText: TextView) {
         val totalPrice = currentQuantity * moviePrice
-        totalPriceText.text = "Total Price: Rp ${totalPrice}"
+        totalPriceText.text = "Total Price: Rp $totalPrice"
     }
-
-
-
 }

@@ -1,34 +1,39 @@
 <!-- res/layout/transaction_item.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
     android:background="#262626"
     android:layout_marginBottom="10dp"
     >
     <TextView
         android:id="@+id/movieName"
         android:text="Movie Name"
-        android:textSize="20sp"
+        android:textSize="22sp"
+        android:fontFamily="@font/barlowcondensedbold"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/kuning"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_width="wrap_content"/>
 
     <TextView
         android:id="@+id/quantity"
         android:text="Quantity: 1"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:fontFamily="@font/barlowcondensedmedium"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_width="wrap_content"/>
     <TextView
         android:id="@+id/price"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:fontFamily="@font/barlowcondensedmedium"
         android:textColor="@color/white"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         />
 
 

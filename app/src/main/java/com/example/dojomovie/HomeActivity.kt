@@ -76,7 +76,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     Toast.makeText(applicationContext, "Clicked History", Toast.LENGTH_SHORT).show()
                 }
 
-                R.id.nav_aboutUs -> Toast.makeText(applicationContext, "Clicked About Us", Toast.LENGTH_SHORT).show()
+                R.id.nav_aboutUs -> {
+                    startActivity(Intent(this, AboutUsActivity::class.java))
+                    Toast.makeText(applicationContext, "Clicked About Us", Toast.LENGTH_SHORT).show()
+                }
             }
 
             true

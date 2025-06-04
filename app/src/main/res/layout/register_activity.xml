@@ -33,6 +33,7 @@
             android:textSize="15dp"
             android:paddingLeft="20dp"
             android:inputType="number"
+            android:fontFamily="@font/barlowcondensedmedium"
             />
 
         <EditText
@@ -45,7 +46,9 @@
             android:layout_marginBottom="20dp"
             android:textSize="15dp"
             android:paddingLeft="20dp"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:fontFamily="@font/barlowcondensedmedium"
+            />
 
         <EditText
             android:id="@+id/confirmPasswordET"
@@ -57,7 +60,9 @@
             android:layout_marginBottom="20dp"
             android:textSize="15dp"
             android:paddingLeft="20dp"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:fontFamily="@font/barlowcondensedmedium"
+            />
 
         <Button
             android:id="@+id/signUpButton"
@@ -66,11 +71,11 @@
             android:backgroundTint="#EEBA2C"
             android:text="Sign Up"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="20sp"
             app:cornerRadius="10dp"
             tools:ignore="HardcodedText"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/barlowcondensedbold"
             />
 
 
@@ -80,6 +85,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="Already Have An Account? Sign In Now !!"
+           android:fontFamily="@font/barlowcondensedmedium"
            android:textColor="@color/white"
            android:id="@+id/textToRegister"/>
     </LinearLayout>

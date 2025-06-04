@@ -32,6 +32,7 @@
             android:layout_marginBottom="20dp"
             android:textSize="15dp"
             android:paddingLeft="20dp"
+            android:fontFamily="@font/barlowcondensedmedium"
             android:inputType="number"
             />
 
@@ -45,6 +46,7 @@
             android:layout_marginBottom="20dp"
             android:textSize="15dp"
             android:paddingLeft="20dp"
+            android:fontFamily="@font/barlowcondensedmedium"
             android:inputType="textPassword"/>
 
         <Button
@@ -54,10 +56,10 @@
             android:backgroundTint="#EEBA2C"
             android:text="Sign Up"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="20sp"
             app:cornerRadius="10dp"
             tools:ignore="HardcodedText"
+            android:fontFamily="@font/barlowcondensedbold"
             android:layout_marginBottom="15dp"/>
 
 
@@ -67,6 +69,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/barlowcondensedmedium"
             android:text="Don't Have An Account? Register Now!!"
             android:textColor="@color/white"/>
     </LinearLayout>

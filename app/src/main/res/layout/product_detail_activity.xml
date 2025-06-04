@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#161616">
+    android:background="#212121"
+    android:paddingTop="20dp">
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar

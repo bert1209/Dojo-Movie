@@ -51,6 +51,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("jp.wasabeef:glide-transformations:4.3.0")
     implementation(libs.play.services.maps)
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 

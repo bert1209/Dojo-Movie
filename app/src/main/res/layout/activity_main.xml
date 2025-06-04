@@ -36,11 +36,11 @@
             android:backgroundTint="#EEBA2C"
             android:text="Sign In"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="20sp"
             app:cornerRadius="10dp"
             tools:ignore="HardcodedText"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/barlowcondensedbold"
             android:onClick="signInClicked"/>
 
         <Button
@@ -49,10 +49,10 @@
             android:backgroundTint="@color/white"
             android:text="Sign Up"
             android:textColor="#4B0082"
-            android:textStyle="bold"
             android:textSize="20sp"
             app:cornerRadius="10dp"
             tools:ignore="HardcodedText"
+            android:fontFamily="@font/barlowcondensedbold"
             android:onClick="signUpClicked"/>
 
 

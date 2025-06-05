@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -25,12 +25,12 @@
         <EditText
             android:id="@+id/phoneNumLoginET"
             android:layout_width="300dp"
-            android:layout_height="37dp"
+            android:layout_height="50dp"
             android:background="@drawable/rounded_button"
             android:hint="Enter Phone Number"
             android:textColorHint="#BFBFBF"
             android:layout_marginBottom="20dp"
-            android:textSize="15dp"
+            android:textSize="21dp"
             android:paddingLeft="20dp"
             android:fontFamily="@font/barlowcondensedmedium"
             android:inputType="number"
@@ -39,12 +39,12 @@
         <EditText
             android:id="@+id/PasswordLoginET"
             android:layout_width="300dp"
-            android:layout_height="37dp"
+            android:layout_height="50dp"
             android:background="@drawable/rounded_button"
             android:hint="Enter Password"
             android:textColorHint="#BFBFBF"
-            android:layout_marginBottom="20dp"
-            android:textSize="15dp"
+            android:layout_marginBottom="40dp"
+            android:textSize="21dp"
             android:paddingLeft="20dp"
             android:fontFamily="@font/barlowcondensedmedium"
             android:inputType="textPassword"/>
@@ -52,11 +52,11 @@
         <Button
             android:id="@+id/signInButton"
             android:layout_width="280dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:backgroundTint="#EEBA2C"
-            android:text="Sign Up"
+            android:text="Sign In"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="24sp"
             app:cornerRadius="10dp"
             tools:ignore="HardcodedText"
             android:fontFamily="@font/barlowcondensedbold"
@@ -65,13 +65,15 @@
 
         <TextView
             android:id="@+id/TextSignInNow"
-            android:layout_marginTop="100dp"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/barlowcondensedmedium"
             android:text="Don't Have An Account? Register Now!!"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
     </LinearLayout>
 
 </RelativeLayout>

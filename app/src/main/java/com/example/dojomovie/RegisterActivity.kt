@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dojomovie.DBhelper.Database_Helper
+import com.example.dojomovie.R.id.textToLogin
 import com.example.dojomovie.databinding.ActivityMainBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -32,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         val phoneNumET = findViewById<EditText>(R.id.phoneNumET)
         val passwordET = findViewById<EditText>(R.id.passwordET)
         val confrimPasswordET = findViewById<EditText>(R.id.confirmPasswordET)
-        val textToRegister = findViewById<TextView>(R.id.textToRegister)
+        val textToLogin = findViewById<TextView>(R.id.textToLogin)
 
 
         Database_Helper = Database_Helper(this)
@@ -60,12 +61,14 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(applicationContext, "Make Sure to Check your Password Once Again", Toast.LENGTH_SHORT).show()
             }
-            textToRegister.setOnClickListener{
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            }
 
 
+
+        }
+
+        textToLogin.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
         val dbHelper = Database_Helper(this)

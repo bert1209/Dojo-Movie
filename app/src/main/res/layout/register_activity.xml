@@ -87,7 +87,7 @@
            android:text="Already Have An Account? Sign In Now !!"
            android:fontFamily="@font/barlowcondensedmedium"
            android:textColor="@color/white"
-           android:id="@+id/textToRegister"/>
+           android:id="@+id/textToLogin"/>
     </LinearLayout>
 
 </RelativeLayout>
